@@ -6,14 +6,19 @@ import re
 import json
 
 # Initialize Options to start Chrome as headless in selenium
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument("--headless")
-capabilities = DesiredCapabilities.CHROME.copy()
+#chrome_options = webdriver.ChromeOptions()
+#chrome_options.add_argument("--headless")
+
+edge_options = webdriver.EdgeOptions()
+
+capabilities = DesiredCapabilities.EDGE.copy()
+
 capabilities['acceptSslCerts'] = True
 capabilities['acceptInsecureCerts'] = True
 
 # Initialize the chrome webdriver as 'browser'
-browser = webdriver.Chrome(options=chrome_options, desired_capabilities=capabilities)
+browser = webdriver.Edge(options=edge_options)
+#browser = webdriver.Edge(options=edge_options, desired_capabilities=capabilities)
 
 # To initialize the webdriver in a new window for Debugging:
 # browser = webdriver.Chrome('chromedriver.exe')
